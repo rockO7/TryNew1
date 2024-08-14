@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Chatbot</title>
+  </head>
+  
+  <body>
+    <div class="chatbox">
+      <div class="chat-header">
+        <div class="chat-title">Chatbot</div>
+        <div class="chat-icon">
+          <i class="fa fa-times" aria-hidden="true"></i>
+        </div>
+      </div>
+      <div class="chat-messages">
+        <div class="message bot">
+          <div class="message-avatar bot-avatar">AI</div>
+          <div class="message-content bot">Hello How Can I Help You?</div>
+        </div>
+      </div>
+      <div class="chat-input">
+        <input
+          type="text"
+          class="input-field"
+          placeholder="Type your message here..."
+        />
+        <button class="send-button">Send</button>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/3.0.5/marked.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

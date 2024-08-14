@@ -1,0 +1,236 @@
+body {
+  background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+}
+
+.chatbox {
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 0; /* Remove border-radius for full screen */
+  padding: 20px;
+  box-shadow: none; /* Remove box-shadow */
+  font-family: 'Poppins', sans-serif; /* Apply Poppins font */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: none; /* Remove border */
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.chat-title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif; /* Apply Poppins font */
+}
+
+.chat-icon {
+  cursor: pointer;
+  color: #fff;
+}
+
+.chat-messages {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.message {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.message.bot {
+  justify-content: flex-start;
+}
+
+.message.user {
+  justify-content: flex-end;
+  flex-direction: row-reverse;
+}
+
+.message-avatar {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+.message-avatar.user-avatar {
+  background-color: #ff5e3a;
+  margin-left: 10px;
+}
+
+.message-avatar.bot-avatar {
+  background-color: #0078ff;
+  margin-right: 10px;
+}
+
+.message-content {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  padding: 10px;
+  max-width: 75%;
+  color: #ffffff;
+}
+
+.message-content.user {
+  background-color: #0078ff;
+  color: #fff;
+  margin-left: auto;
+}
+
+.chat-input {
+  display: flex;
+  margin-top: 10px;
+}
+
+.input-field {
+  flex-grow: 1;
+  padding: 15px;
+  border: none;
+  border-radius: 25px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+  margin-right: 10px;
+  padding-left: 20px;
+}
+
+.input-field::placeholder {
+  color: #b2b2b2;
+}
+
+.send-button {
+  background-color: #0078ff;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  padding: 15px 25px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.send-button:hover {
+  background-color: #005ecb;
+}
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-spinner {
+  width: 25px;
+  height: 25px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: spinner 0.6s linear infinite;
+}
+
+/* Code block styles */
+pre {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  padding: 10px;
+  overflow-x: auto;
+}
+
+code {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.95em;
+}
+
+/* Adjust for smaller screens */
+@media (max-width: 600px) {
+  .input-field {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+
+  .send-button {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}
+
+
+.copy-button {
+  background-color: #f0f0f0;
+  border: none;
+  padding: 5px 10px;
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 3px;
+  font-size: 0.8em;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.copy-button:hover {
+  background-color: #e0e0e0;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.copy-button.copied {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.copy-button.copy-failed {
+  background-color: #f44336;
+  color: white;
+}
+
+.code-wrapper {
+  position: relative;
+}
+
+.code-copy-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  padding: 3px 6px;
+  font-size: 0.7em;
+  opacity: 0.7;
+}
+
+.code-copy-button:hover {
+  opacity: 1;
+}
+
+@keyframes popIn {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+.copy-button:active {
+  animation: popIn 0.3s ease;
+}
