@@ -2,6 +2,21 @@ const chatMessages = document.querySelector(".chat-messages");
 const inputField = document.querySelector(".input-field");
 const sendButton = document.querySelector(".send-button");
 
+// Function to auto-resize the textarea
+function autoResize() {
+  this.style.height = 'auto';
+  this.style.height = this.scrollHeight + 'px';
+}
+
+// Add event listeners for input and keydown events
+inputField.addEventListener('input', autoResize);
+inputField.addEventListener('keydown', function(event) {
+  if (event.key === 'Enter' && !event.shiftKey) {
+    event.preventDefault();
+    sendMessage();
+  }
+});
+
 // Function to append bot messages to the chat
 function appendBotMessage(message, chatContainer) {
   const markdownContent = marked.parse(message);
@@ -52,10 +67,11 @@ function sendMessage() {
     newMessage.classList.add("message", "user");
     newMessage.innerHTML = `
       <div class="message-avatar user-avatar">U</div>
-      <div class="message-content user">${userMessage}</div>
+      <div class="message-content user">${formatMessage(userMessage)}</div>
     `;
     chatMessages.appendChild(newMessage);
 
+    // ... rest of your sendMessage function ...
     // Create a loading message element
     const loadingMessage = document.createElement("div");
     loadingMessage.classList.add("message", "bot");
@@ -118,6 +134,14 @@ function sendMessage() {
               block.parentNode.insertBefore(wrapper, block);
               wrapper.appendChild(block);
 
+              const languageName = block.classList[0]?.replace('language-', '');
+              if (languageName) {
+                const languageTag = document.createElement('div');
+                languageTag.classList.add('language-tag');
+                languageTag.textContent = languageName;
+                wrapper.insertBefore(languageTag, block);
+              }
+
               const copyButton = document.createElement('button');
               copyButton.innerHTML = '<i class="fas fa-copy"></i>';
               copyButton.classList.add('copy-button', 'code-copy-button');
@@ -144,6 +168,8 @@ function sendMessage() {
             });
 
             chatMessages.scrollTop = chatMessages.scrollHeight;
+            inputField.value = ""; // Clear the input field
+            inputField.style.height = 'auto'; // Reset the height
 
             // Keep reading until done
             return read();
@@ -160,9 +186,14 @@ function sendMessage() {
       });
 
     inputField.value = ""; // Clear the input field
+    inputField.style.height = 'auto'; // Reset the height
   }
 }
 
+// Function to format the message (preserve newlines)
+function formatMessage(message) {
+  return message.replace(/\n/g, '<br>');
+}
 // Event listener for pressing "Enter" key
 inputField.addEventListener("keyup", (event) => {
   if (event.key === "Enter") {
@@ -170,5 +201,12 @@ inputField.addEventListener("keyup", (event) => {
   }
 });
 
+// Function to format the message (preserve newlines)
+function formatMessage(message) {
+  return message.replace(/\n/g, '<br>');
+}
+
 // Event listener for send button click
 sendButton.addEventListener("click", sendMessage);
+
+
