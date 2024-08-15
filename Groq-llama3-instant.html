@@ -29,17 +29,9 @@
         <h2></h2>
       </div>
       <ul class="side-nav-list">
-        <li>
-          <a href="Groq-llama3-instant.html"
-            ><i class="fas fa-robot"></i> Groq</a
-          >
-        </li>
-        <li>
-          <a href="index.html"><i class="fas fa-home"></i> 4o Mini</a>
-        </li>
-        <li>
-          <a href="#"><i class="fas fa-envelope"></i> Contact</a>
-        </li>
+        <li><a href="Groq-llama3-instant.html">Groq</a></li>
+        <li><a href="index.html">4o Mini</a></li>
+        <li><a href="#">Contact</a></li>
         <!-- Add more links as needed -->
       </ul>
     </div>
@@ -51,8 +43,8 @@
 
     <div class="chatbox" id="chatbox">
       <div class="chat-header">
-        <div class="chat-title">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GPT 4o Mini</div>
-        <div class="chat-icon"><i class="fas fa-robot"></i></div>
+        <div class="chat-title">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Groq</div>
+        <div class="chat-icon"></div>
       </div>
       <div class="chat-messages">
         <div class="message bot">
@@ -63,13 +55,10 @@
       <div class="chat-input">
         <textarea
           class="input-field"
-          id="input-field"
           placeholder="Type your message here..."
           rows="1"
         ></textarea>
-        <button class="send-button" id="send-button">
-          <i class="fas fa-paper-plane"></i>
-        </button>
+        <button class="send-button">Send</button>
       </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
@@ -77,6 +66,6 @@
     <script src="main.js"></script>
     <script src="messageHandlers.js"></script>
     <script src="utils.js"></script>
-    <script src="four-o-api.js"></script>
+    <script src="groq.js"></script>
   </body>
 </html>
